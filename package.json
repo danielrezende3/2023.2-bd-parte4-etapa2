@@ -1,0 +1,23 @@
+{
+  "name": "2023.2-bd-parte4-etapa2",
+  "version": "1.0.0",
+  "description": "Simple CRUD app for UFS database course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielrezende3/2023.2-bd-parte4-etapa2.git"
+  },
+  "author": "Daniel Rezende",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielrezende3/2023.2-bd-parte4-etapa2/issues"
+  },
+  "homepage": "https://github.com/danielrezende3/2023.2-bd-parte4-etapa2#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "postgres": "^3.4.4"
+  }
+}
