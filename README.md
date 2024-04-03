@@ -3,9 +3,9 @@ Um app que contém 3 tabelas (2 entidades e 1 relacionamento), contendo as opera
 
 ## Lista de afazeres
 
-- [ ] Criar 3 tabelas de banco de dados
-    - [ ] 2 entidades
-    - [ ] 1 relacionamento ou agregação
+- [x] Criar 3 tabelas de banco de dados
+    - [x] 2 entidades
+    - [x] 1 relacionamento ou agregação
 - [ ] Operações CRUD
     - [ ] Insert
     - [ ] Update
