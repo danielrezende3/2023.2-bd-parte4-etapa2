@@ -4,7 +4,8 @@
   "description": "Simple CRUD app for UFS database course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon --inspect index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "pg": "^8.11.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
