@@ -1,5 +1,5 @@
 require("dotenv").config();
-const Client = require("pg").Client;
+const Pool = require("pg").Client;
 const express = require("express");
 
 // creating express
@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // connecting to database
-const client = new Client({
+const pool = new Pool({
   host: process.env.PGHOST,
   user: process.env.PGUSER,
   password: process.env.PGPASSWORD,
@@ -22,7 +22,7 @@ const client = new Client({
     rejectUnauthorized: false,
   },
 });
-client.connect();
+pool.connect();
 
 // testing connection
 app.get("/", (req, res) => {
@@ -33,11 +33,8 @@ app.get("/", (req, res) => {
 //
 // get all pedidos
 app.get("/api/pedidos", async (req, res) => {
-  console.log(process.env.PGPASSWORD);
-
-  const teste = await client.query("SELECT * FROM pedidos;");
-  console.log(teste);
-  res.json(teste.rows);
+  const res = await pool.query("SELECT * FROM pedidos;");
+  res.json(res.rows);
 });
 app.post("/api/pedidos", (req, res) => {
   res.send("POST pedidos");
@@ -50,7 +47,7 @@ app.put("/api/pedidos", (req, res) => {
 });
 
 // operations for sabores
-app.get("/api/sabores", (req, res) => {
+app.get("/api/sabores", async (req, res) => {
   res.send("GET sabores");
 });
 app.post("/api/sabores", (req, res) => {
