@@ -23,8 +23,8 @@ npm install
     - [x] sabores
     - [x] pedidos
     - [x] sabores_pedidos
-- [ ] Implementar um método transação, ou seja, faz uma pesquisa e depois insere algo na tabela
-- [ ] Implementar um swagger
+- [x] Implementar um método transação, ou seja, faz uma pesquisa e depois insere algo na tabela
+- [x] Implementar um swagger
     - [x] sabores
     - [x] pedidos
     - [x] sabores_pedidos
