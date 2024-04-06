@@ -1,6 +1,8 @@
 # 2023.2-bd-parte4-etapa2
 Um app que contém 3 tabelas (2 entidades e 1 relacionamento), contendo as operações CRUD, assim como também uma operação de transação.
 
+> Autor: Carlos Daniel Rezende Euzébio 
+
 ## Como rodar o app?
 
 Primeiro instale todos as dependências necessárias
@@ -9,10 +11,10 @@ Primeiro instale todos as dependências necessárias
 npm install
 ```
 
-Depois para começar o programa, utilize este comando
+Será necessário fazer as conexões a partir do .env, depois para começar o programa, utilize este comando
 
 ```
-npm install
+npm start
 ```
 ## Lista de afazeres
 
