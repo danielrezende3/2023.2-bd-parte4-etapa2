@@ -1,3 +1,8 @@
+-- deleta tabelas se existirem
+DROP TABLE IF EXISTS sabores CASCADE;
+DROP TABLE IF EXISTS pedidos CASCADE;
+DROP TABLE IF EXISTS sabores_pedidos CASCADE;
+
 -- Cria a tabela Sabores
 CREATE TABLE sabores (
     id SERIAL PRIMARY KEY,
@@ -20,6 +25,7 @@ CREATE TABLE pedidos (
 
 -- Cria a tabela Sabores_Pedidos
 CREATE TABLE sabores_pedidos (
+    id SERIAL PRIMARY KEY,
     sabor_id INTEGER NOT NULL, -- FK para a tabela Sabores
     pedido_id INTEGER NOT NULL, -- FK para a tabela Pedidos
     quantidade INTEGER NOT NULL
