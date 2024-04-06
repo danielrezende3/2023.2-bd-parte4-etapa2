@@ -15,9 +15,9 @@ const transactions = require("express").Router();
 
 /**
  * @swagger
- * /create_order:
+ * /transacao:
  *   post:
- *     summary: Create a new order
+ *     summary: Criar uma nova transacao
  *     parameters:
  *       - in: query
  *         name: cliente_id
@@ -48,9 +48,9 @@ const transactions = require("express").Router();
  *                 type: integer
  *     responses:
  *       201:
- *         description: Order created successfully
+ *         description: Transacao criada com sucesso
  *       500:
- *         description: An error occurred while creating the order
+ *         description: Ocorreu um erro ao criar uma nova transacao
  */
 transactions.post("/", async (req, res) => {
   try {
@@ -85,13 +85,13 @@ transactions.post("/", async (req, res) => {
     }
 
     await pool.query("COMMIT"); // Commit transaction
-    res.status(201).json({ message: "Order created successfully" });
+    res.status(201).json({ message: "Transacao criada com sucesso" });
   } catch (error) {
     await pool.query("ROLLBACK"); // Rollback transaction if any error occurs
-    console.error("Error creating order:", error);
+    console.error("Erro ao criar um nova transacao:", error);
     res
       .status(500)
-      .json({ error: "An error occurred while creating the order" });
+      .json({ error: "Ocorreu um erro ao criar uma nova transacao" });
   } finally {
     client.release(); // Release the client back to the pool
   }
