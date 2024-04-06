@@ -19,12 +19,12 @@ npm install
 - [x] Criar 3 tabelas de banco de dados
     - [x] 2 entidades
     - [x] 1 relacionamento ou agregação
-- [ ] Operações CRUD
+- [x] Operações CRUD
     - [x] sabores
     - [x] pedidos
-    - [ ] sabores_pedidos
+    - [x] sabores_pedidos
 - [ ] Implementar um método transação, ou seja, faz uma pesquisa e depois insere algo na tabela
 - [ ] Implementar um swagger
     - [x] sabores
     - [x] pedidos
-    - [ ] sabores_pedidos
+    - [x] sabores_pedidos
