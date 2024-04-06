@@ -21,10 +21,10 @@ npm install
     - [x] 1 relacionamento ou agregação
 - [ ] Operações CRUD
     - [x] sabores
-    - [ ] pedidos
+    - [x] pedidos
     - [ ] sabores_pedidos
 - [ ] Implementar um método transação, ou seja, faz uma pesquisa e depois insere algo na tabela
 - [ ] Implementar um swagger
     - [x] sabores
-    - [ ] pedidos
+    - [x] pedidos
     - [ ] sabores_pedidos

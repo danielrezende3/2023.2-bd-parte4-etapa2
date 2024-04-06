@@ -12,6 +12,7 @@ const pool = new Pool({
 pool.connect();
 
 const sabores = require("express").Router();
+
 /**
  * @swagger
  * /sabores:
@@ -63,12 +64,12 @@ const sabores = require("express").Router();
  */
 sabores.get("/", async (req, res) => {
   try {
-    await pool.query("SELECT * FROM sabores;");
+    const results = await pool.query("SELECT * FROM sabores;");
     res.status(200).send(results.rows);
   } catch (error) {
     // Handle the error here
     console.error(error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Erro com servidor!");
   }
 });
 
@@ -129,12 +130,12 @@ sabores.get("/", async (req, res) => {
 sabores.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    await pool.query("SELECT * FROM sabores WHERE id = $1", [id]);
+    const results = await pool.query("SELECT * FROM sabores WHERE id = $1", [id]);
     res.status(200).send(results.rows);
   } catch (error) {
     // Handle the error here
     console.error(error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Erro com servidor!");
   }
 });
 
@@ -144,31 +145,43 @@ sabores.get("/:id", async (req, res) => {
  *   post:
  *     summary: Adiciona um novo sabor
  *     description: Adiciona um novo sabor ao banco de dados.
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               nome:
- *                 type: string
- *                 description: O nome do sabor.
- *               descricao:
- *                 type: string
- *                 description: A descrição do sabor.
- *               tipo:
- *                 type: string
- *                 description: O tipo do sabor.
- *               vegano:
- *                 type: boolean
- *                 description: Se o sabor é vegano ou não.
- *               sem_lactose:
- *                 type: boolean
- *                 description: Se o sabor é sem lactose ou não.
- *               preco:
- *                 type: number
- *                 description: O preço do sabor.
+ *     parameters:
+ *       - in: query
+ *         name: nome
+ *         required: true
+ *         description: O nome do sabor.
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: descricao
+ *         required: true
+ *         description: A descrição do sabor.
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: tipo
+ *         required: true
+ *         description: O tipo do sabor.
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: vegano
+ *         required: true
+ *         description: Se o sabor é vegano ou não.
+ *         schema:
+ *           type: boolean
+ *       - in: query
+ *         name: sem_lactose
+ *         required: true
+ *         description: Se o sabor é sem lactose ou não.
+ *         schema:
+ *           type: boolean
+ *       - in: query
+ *         name: preco
+ *         required: true
+ *         description: O preço do sabor.
+ *         schema:
+ *           type: number
  *     responses:
  *       200:
  *         description: Sabor adicionado com sucesso.
@@ -298,6 +311,7 @@ sabores.delete("/:id", async (req, res) => {
   }
 });
 
+
 /**
  * @swagger
  * /sabores:
@@ -310,32 +324,43 @@ sabores.delete("/:id", async (req, res) => {
  *         required: true
  *         description: ID do sabor a ser atualizado.
  *         schema:
- *           type: integer
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               nome:
- *                 type: string
- *                 description: O nome do sabor.
- *               descricao:
- *                 type: string
- *                 description: A descrição do sabor.
- *               tipo:
- *                 type: string
- *                 description: O tipo do sabor.
- *               vegano:
- *                 type: boolean
- *                 description: Se o sabor é vegano ou não.
- *               sem_lactose:
- *                 type: boolean
- *                 description: Se o sabor é sem lactose ou não.
- *               preco:
- *                 type: number
- *                 description: O preço do sabor.
+ *           type: number
+ *       - in: query
+ *         name: nome
+ *         required: false
+ *         description: O nome do sabor.
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: descricao
+ *         required: false
+ *         description: A descrição do sabor.
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: tipo
+ *         required: false
+ *         description: O tipo do sabor.
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: vegano
+ *         required: false
+ *         description: Se o sabor é vegano ou não.
+ *         schema:
+ *           type: boolean
+ *       - in: query
+ *         name: sem_lactose
+ *         required: false
+ *         description: Se o sabor é sem lactose ou não.
+ *         schema:
+ *           type: boolean
+ *       - in: query
+ *         name: preco
+ *         required: false
+ *         description: O preço do sabor.
+ *         schema:
+ *           type: number
  *     responses:
  *       200:
  *         description: Sabor atualizado com sucesso.
